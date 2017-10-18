@@ -14,7 +14,10 @@ Dweepy
     :target: https://travis-ci.org/paddycarey/dweepy
     :alt: Travis CI build status
 
-Dweepy is a simple Python client for `dweet.io <https://dweet.io>`_. Dweepy has a full test suite and aims to have 100% coverage of the `dweet.io <https://dweet.io>`_ API (we're pretty much there already).
+This is a version of Dweepy, a simple Python client for, `renesas.dweet.io <https://renesas.dweet.io>`_. 
+Renesas refers to this system as the Renesas IoT Sandbox Data Monitoring. Extensive information on the
+Renesas IoT Sandbox is available at http://learn.iotcommunity.io/
+Dweepy has a full test suite and aims to have 100% coverage of the `dweet.io <https://dweet.io>`_ API (we're pretty much there already).
 
 Large portions of this README have been adapted from the README of the the official `javascript client from buglabs <https://github.com/buglabs/dweetio-client/blob/master/README.md>`_.
 
