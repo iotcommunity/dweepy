@@ -1,6 +1,6 @@
-===============================
-Dweepy
-===============================
+=======================================================
+Renesas IoT Sandbox Data Monitoring API Client - Dweepy
+=======================================================
 
 .. image:: https://img.shields.io/pypi/v/dweepy.svg?style=flat
     :target: https://pypi.python.org/pypi/dweepy/
