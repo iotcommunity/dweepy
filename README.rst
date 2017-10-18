@@ -2,26 +2,11 @@
 Renesas IoT Sandbox Data Monitoring API Client - Dweepy
 =======================================================
 
-.. image:: https://img.shields.io/pypi/v/dweepy.svg?style=flat
-    :target: https://pypi.python.org/pypi/dweepy/
-    :alt: Latest PyPI version
-
-.. image:: https://img.shields.io/pypi/dm/dweepy.svg?style=flat
-    :target: https://pypi.python.org/pypi/dweepy/
-    :alt: Number of PyPI downloads
-
-.. image:: https://img.shields.io/travis/paddycarey/dweepy/master.png?style=flat
-    :target: https://travis-ci.org/paddycarey/dweepy
-    :alt: Travis CI build status
-
 This is a version of Dweepy, a simple Python client for, `renesas.dweet.io <https://renesas.dweet.io>`_. 
 Renesas refers to this system as the Renesas IoT Sandbox Data Monitoring. Extensive information on the
 Renesas IoT Sandbox is available at http://learn.iotcommunity.io/
-Dweepy has a full test suite and aims to have 100% coverage of the `dweet.io <https://dweet.io>`_ API (we're pretty much there already).
 
-Large portions of this README have been adapted from the README of the the official `javascript client from buglabs <https://github.com/buglabs/dweetio-client/blob/master/README.md>`_.
-
-Dweepy supports Python 2.6, 2.7, PyPy, 3.3 and 3.4 (and probably later versions too, but I haven't tested on those).
+Dweepy supports Python 2.6, 2.7, PyPy, 3.3 and 3.4 (and probably later versions too).
 
 * Free software: MIT license
 * Documentation: https://github.com/paddycarey/dweepy
@@ -31,34 +16,17 @@ Dweepy supports Python 2.6, 2.7, PyPy, 3.3 and 3.4 (and probably later versions 
 Installation
 ------------
 
-Distribute & Pip
-~~~~~~~~~~~~~~~~
-
-Installing dweepy is simple with `pip <http://www.pip-installer.org/>`_::
-
-    $ pip install dweepy
-
-or, with `easy_install <http://pypi.python.org/pypi/setuptools>`_::
-
-    $ easy_install dweepy
-
-But, you really `shouldn't do that <http://www.pip-installer.org/en/latest/other-tools.html#pip-compared-to-easy-install>`_.
-
-
 Get the Code
 ~~~~~~~~~~~~
 
-Dweepy is actively developed on GitHub, where the code is `always available <https://github.com/paddycarey/dweepy>`_.
 
-You can either clone the public repository::
+Clone the public repository fork::
 
-    $ git clone git://github.com/paddycarey/dweepy.git
+    $ git clone https://github.com/iotcommunity/dweepy
 
-Or download the `tarball <https://github.com/paddycarey/dweepy/tarball/master>`_::
 
-    $ curl -OL https://github.com/paddycarey/dweepy/tarball/master
-
-Once you have a copy of the source, you can embed it in your Python package, or install it into your site-packages easily::
+Once you have a copy of the source, you can embed it in your Python package, 
+or install it into your site-packages easily::
 
     $ python setup.py install
 
@@ -67,7 +35,8 @@ Once you have a copy of the source, you can embed it in your Python package, or 
 Usage
 -----
 
-Dweepy aims to provide a simple, pythonic interface to dweet.io. It has been designed to be easy to use, and aims to cover the dweet.io API entirely.
+Dweepy aims to provide a simple, pythonic interface to renesas.dweet.io. It has been 
+designed to be easy to use, and aims to cover the renesas.dweet.io API entirely.
 
 First you'll need to import dweepy.::
 
@@ -76,17 +45,6 @@ First you'll need to import dweepy.::
 
 Dweeting
 ~~~~~~~~
-
-You can send a dweet without specify a name for your thing.::
-
-    >>> dweepy.dweet({'some_key': 'some_value'})
-    {
-        u'content': {u'some_key': u'some_value'},
-        u'created': u'2014-03-19T10:35:59.504Z',
-        u'thing': u'unequaled-start'
-    }
-
-Note: If you do not specify a name for your thing, dweet.io will assign a random name and return it in the response as above.
 
 You can send a dweet from a thing with a specified name.::
 
