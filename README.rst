@@ -7,22 +7,15 @@ This platform is known as the
 Renesas IoT Sandbox Data Monitoring. Extensive information on the
 Renesas IoT Sandbox is available at http://learn.iotcommunity.io/
 
-Dweepy supports Python 2.6, 2.7, PyPy, 3.3 and 3.4 (and probably later versions too).
-
-* Free software: MIT license
-
-
-Installation
-------------
-
 Get the Code
-~~~~~~~~~~~~
-
+------------
 
 Clone the public repository fork::
 
     $ git clone https://github.com/iotcommunity/dweepy
 
+Installation
+------------
 
 Once you have a copy of the source, you can embed it in your Python package, 
 or install it into your site-packages easily::
@@ -30,17 +23,72 @@ or install it into your site-packages easily::
     $ python setup.py install
 
 
+S5D9 Preparation
+----------------
 
-Usage
------
+You'll need to get your thing name. Connect the S5D9
+IoT Fast Prototyping Kit board to your computer with a USB
+cable. It will mount as a USB drive. Your thing name will be in
+ThingName.txt
 
-Dweepy aims to provide a simple, pythonic interface to renesas.dweet.io. It has been 
-designed to be easy to use, and aims to cover the renesas.dweet.io API entirely.
+.. image:: https://codetricity.github.io/s5d9-hacking/monitoring/img/thingname.png
+
+Your S5D9 board must be connected to USB and power.
+
+.. image:: https://codetricity.github.io/s5d9-hacking/monitoring/img/usb-ethernet.jpg
+
+
+Your dashboard should be receiving sensor data. The dashboard is available 
+at http://renesas.dweet.io/landing.html
+
+.. image:: https://codetricity.github.io/s5d9-hacking/monitoring/img/dash2.png
+
+Overview of board layout with onboard sensors.
+
+.. image:: https://codetricity.github.io/s5d9-hacking/monitoring/img/S5D9schematic.jpg
+
+API Usage
+---------
+
+Dweepy aims to provide a simple, pythonic interface to cover 
+the renesas.dweet.io API entirely.
 
 First you'll need to import dweepy.::
 
     import dweepy
 
+dweepy example for S5D9 IoT Fast Prototyping Kit
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    import dweepy
+    import pprint
+
+    response = dweepy.get_latest_dweet_for('S5D9-63de')
+    pprint.pprint(response)
+
+The response.
+
+::
+
+    $ python renesasiot.py
+    [{u'content': {u'globals': {u'application': u'DweetS5D9Client',
+                                u'dweet-count': 1065},
+                u'sensors': {u'AccelX': 0.02,
+                                u'AccelY': 0.31,
+                                u'AccelZ': 0.97,
+                                u'Humidity': 38,
+                                u'LED': 0,
+                                u'MagX': -77,
+                                u'MagY': 34,
+                                u'MagZ': -179,
+                                u'Pressure': 1016,
+                                u'SoundLevel': 2,
+                                u'TemperatureC': 29,
+                                u'TemperatureF': 84}},
+    u'created': u'2017-10-18T20:18:00.162Z',
+    u'thing': u'S5D9-63de'}]
 
 Dweeting
 ~~~~~~~~
@@ -227,7 +275,8 @@ Each API call allows a request ``Session`` to be optionally set to persist certa
 * configuring HTTP Proxies
 * enabling timeouts for HTTP requests
 
-Further information of requests session can be found in `Request Session Advanced Usage <http://docs.python-requests.org/en/master/user/advanced/>`_.
+Further information of requests session can be found in 
+`Request Session Advanced Usage <http://docs.python-requests.org/en/master/user/advanced/>`_.
 
 To enable a session (in this case with a 5 second timeout)::
 
@@ -241,34 +290,10 @@ The session may be used in all dweepy API calls::
     >>> dweepy.dweet_for('this_is_a_thing', {'some_key': 'some_value'}, session=session_with_timeout)
 
 
-Testing
--------
+Additional information
+----------------------
 
-Dweepy has a full test suite (a port of `dweetio-client's <https://github.com/buglabs/dweetio-client>`_ test suite). Assuming you have a full source checkout of the dweepy repository, running the tests is simple with ``tox``::
-
-    $ pip install tox
-    $ tox
-
-It is recommended that you use a virtualenv when developing or running the tests to ensure that system libraries do not interfere with the tests.
-
-**NOTE:** In order for all of the tests to complete successfully you must set several environment variables. There are numerous ways to accomplish this, but I like `forego <https://github.com/ddollar/forego>`_ (a golang port of the `foreman <https://github.com/ddollar/foreman>`_ utility).
-
-To use forego in your tests you should first create a ``.env`` file in the root of your repository with the following contents::
-
-    DWEET_LOCK=mylock
-    DWEET_KEY=mykey
-
-Once in place, you can run your tests locally with::
-
-    $ forego run tox
-
-If you want to test against a single python version, you can use ``tox -e`` e.g.::
-
-    $ forego run tox -e py27
-    $ forego run tox -e pypy
-    $ forego run tox -e py34
-
-**TIP:** If you're using Ubuntu, you can find older/newer versions of python than the one shipped with your distribution `here <https://launchpad.net/~fkrull/+archive/ubuntu/deadsnakes>`_. You can install as many as you like side by side without affecting your default python install.
+`S5D9 Hacking Guide <https://codetricity.github.io/s5d9-hacking/>`_
 
 
 Copyright & License
