@@ -3,14 +3,13 @@ Renesas IoT Sandbox Data Monitoring API Client - Dweepy
 =======================================================
 
 This is a version of Dweepy, a simple Python client for, `renesas.dweet.io <https://renesas.dweet.io>`_. 
-Renesas refers to this system as the Renesas IoT Sandbox Data Monitoring. Extensive information on the
+This platform is known as the 
+Renesas IoT Sandbox Data Monitoring. Extensive information on the
 Renesas IoT Sandbox is available at http://learn.iotcommunity.io/
 
 Dweepy supports Python 2.6, 2.7, PyPy, 3.3 and 3.4 (and probably later versions too).
 
 * Free software: MIT license
-* Documentation: https://github.com/paddycarey/dweepy
-
 
 
 Installation
@@ -170,7 +169,20 @@ The server will keep the connection alive and send you dweets as they arrive.
 Locking & Security
 ~~~~~~~~~~~~~~~~~~
 
-By default, all things are publicly accessible if you know the name of the thing. You can also lock things so that they are only accessible to users with valid security credentials. To purchase locks, visit `https://dweet.io/locks <https://dweet.io/locks>`_. The locks will be emailed to you.
+By default, all things are publicly accessible if you know the 
+name of the thing. You can also lock things so that they are 
+only accessible to users with valid security credentials. 
+To purchase locks, visit 
+`https://renesas.dweet.io/locks <https://renesas.dweet.io/locks>`_. 
+The locks will be emailed to you.
+
+This is the pricing information from the renesas.dweet.io/locks
+site.
+
+    *Locks are just $1.99 a month and will be emailed to you as 
+    soon as you check out. Locks come with 30 day storage for 
+    each locked dweet. That's up to 2.5 million dweets a month! 
+    If you need more storage, just get in touch.*
 
 
 To lock a thing::
@@ -262,5 +274,7 @@ If you want to test against a single python version, you can use ``tox -e`` e.g.
 Copyright & License
 -------------------
 
-| Copyright (c) 2014 Patrick Carey (https://github.com/paddycarey)
+| Original Copyright (c) 2014 Patrick Carey (https://github.com/paddycarey)
 | Licensed under the **MIT** license.
+| Documentation updated by iotcommunity.io in 2017 to help dweepy work
+| with the Renesas IoT Sandbox
